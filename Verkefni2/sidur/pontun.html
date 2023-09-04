@@ -1,24 +1,127 @@
 <!DOCTYPE html>
 <html lang="is">
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
+    <meta property="og:title" content="Geggjaður veitingastaður" />
+    <meta property="og:image" content="../myndir/sharing.jpg" />
+    <meta
+      property="og:description"
+      content="Veitingastaður fyrir alla fjölskylduna og fleira. Skemmtu þér með vinum og vandamönnum."
+    />
+    <meta
+      property="description"
+      content="Veitingastaður fyrir alla fjölskylduna og fleira. Skemmtu þér með vinum og vandamönnum."
+    />
     <title>Panta</title>
-</head>
-<body>
-    <h1>Pantanir</h1>
-    <p>Pantaðu borð og mættu til okkar eða pantaðu mat sem við sendum þér eða þú sækir.</p>
-    <h2>Panta borð</h2>
-    <form>
-        <label>Hvenær villtu koma?</label>
-        <input type="date">
-        <br>
-        <label>Hve mörg?</label>
-        <input type="number" min="1", max="10">
-        <br>
-        <label>Villtu taka eitthvað fram?</label>
-        <input type="text">
-    </form>
-    <h2>Panta mat</h2>
-    
-</body>
+  </head>
+  <body>
+    <header>
+      <h1>Pantanir</h1>
+      <a href="#efni">Beint í efni</a>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Aftur á forsíðu</a></li>
+          <li><a href="rettir.html">Skoða matseðil</a></li>
+          <li><a href="um.html">Um okkur</a></li>
+        </ul>
+      </nav>
+      <p>
+        Pantaðu borð og mættu til okkar eða pantaðu mat sem við sendum þér eða
+        þú sækir.
+      </p>
+    </header>
+    <main id="efni">
+      <!-- Eitt header level skippað -->
+      <h3>Panta borð</h3>
+      <form>
+        <ul>
+          <li>
+            <label for="date">Hvenær villtu koma?</label>
+            <input type="date" , id="date" />
+          </li>
+          <li>
+            <label for="amount">Hve mörg?</label>
+            <input type="number" min="1" max="10" id="amount" />
+          </li>
+          <li>
+            <label for="other">Villtu taka eitthvað fram?</label>
+            <input type="text" id="other" />
+          </li>
+        </ul>
+        <input type="submit" value="Panta borð" />
+      </form>
+      <h3>Panta mat</h3>
+      <form>
+        <ul>
+          <li>
+            <label for="rettur">Veldu rétt.</label>
+            <select id="rettur">
+              <option>--Veldu rétt úr lista--</option>
+              <option>Lasagna</option>
+              <option>Sveppa risotto</option>
+              <option>Ferskt pasta með pestó</option>
+              <option>Quesadilla</option>
+            </select>
+          </li>
+          <li>
+            <label for="address">Heimilisfang</label>
+            <input type="text" id="address" />
+          </li>
+        </ul>
+        <h4>Þínar upplýsingar</h4>
+        <ul>
+          <li>
+            <label for="name">Nafn:</label>
+            <input type="text" id="name" required />
+          </li>
+          <li>
+            <label for="mail">Netfang:</label>
+            <input
+              type="email"
+              placeholder="nafn@gmail.com"
+              id="mail"
+              required
+            />
+          </li>
+          <li>
+            <label for="phonenr">Sími:</label>
+            <input
+              type="tel"
+              placeholder="+354 123 4567"
+              id="phonenr"
+              required
+            />
+          </li>
+        </ul>
+        <h4>Samþykkja og panta</h4>
+        <ul>
+          <li>
+            <label for="skilmalar">Ég samþykki skilmála Veitingastaðsins</label>
+            <input type="checkbox" id="skilmalar" />
+          </li>
+        </ul>
+        <input type="submit" value="Panta mat" />
+      </form>
+      <a href="../index.html">Aftur á forsíðu.</a>
+    </main>
+    <footer>
+      <h2>Opnunartími</h2>
+      <dl>
+        <dt>mánudaga-fimmtudaga:</dt>
+        <dd>9:00-18:00</dd>
+        <dt>föstudaga:</dt>
+        <dd>10:00-22:00</dd>
+        <dt>Laugardaga:</dt>
+        <dd>11:00-22:00</dd>
+        <dt>Sunnudaga:</dt>
+        <dd>Lokað</dd>
+      </dl>
+      <h2>Hér erum við</h2>
+      <p>Veitingastaðurinn ehf.</p>
+      <p>Aðalgata 10</p>
+      <p>100 Reykjavík</p>
+      <p>Sími: 333-4567</p>
+      <a href="">veitingastaðurinn@gmail.com</a>
+    </footer>
+  </body>
 </html>
