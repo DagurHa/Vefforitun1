@@ -1,0 +1,100 @@
+/* Setjum inn „reset“ sem fjarlægir margin og padding af öllu */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Reiknum stærð á öllum boxum sem border-box */
+html {
+    box-sizing: border-box;
+}
+/* og látum erfast á allt */
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+/* hjálpar class sem felur sjónrænt en skjálesarar lesa */
+.sr-only:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+body{
+    min-height: 100vh;
+}
+
+main{
+    min-height: 60vh;
+}
+
+header{
+    background-color:rgb(124, 26, 9);
+    display:block;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 10px solid;
+    border-bottom-color: lightblue;
+    color:beige;
+
+}
+
+nav{
+    background-color: chocolate;
+    text-align: center;
+    padding: 1rem;
+}
+
+nav ul{
+    text-align: center;
+}
+
+nav ul li{
+    display: inline;
+    padding-right: 1rem;
+}
+
+nav ul li:last-child{
+    padding-right: 0;
+}
+
+main .section{
+    display: inline-block;
+    vertical-align: top;
+}
+
+main .section:nth-child(2n+1){
+    padding-right: 2rem;
+    margin-right:5rem;
+    margin-left:1rem;
+    margin-bottom: 2rem;
+}
+
+main .section:nth-child(2n){
+    width: 50%;
+    margin-bottom: 2rem;
+}
+
+main .divide{
+    background-color: chocolate;
+    height: 1rem;
+}
+
+footer{
+    background-color: tomato;
+    text-align: center;
+}
+
+footer .box {
+    display: inline-block;
+    width: 16rem;
+    vertical-align: top;
+    text-align: center;
+}
