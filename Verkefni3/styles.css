@@ -2,6 +2,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Lora', serif;
 }
 
 /* Reiknum stærð á öllum boxum sem border-box */
@@ -26,28 +27,18 @@ html {
     width: 1px;
 }
 
-body{
-    min-height: 100vh;
-}
-
-main{
-    min-height: 60vh;
-}
-
 header{
-    background-color:rgb(124, 26, 9);
-    display:block;
-    width: 100%;
+    background-color:#2f0505;
+    padding: 1rem;
     text-align: center;
-    padding: 10px;
-    border-bottom: 10px solid;
-    border-bottom-color: lightblue;
+    border-bottom: 8px solid;
+    border-bottom-color: #ffe7ae;
     color:beige;
-
 }
 
 nav{
-    background-color: chocolate;
+    background-color: #fff9ee;
+    padding: 1rem;
     text-align: center;
     padding: 1rem;
 }
@@ -65,36 +56,119 @@ nav ul li:last-child{
     padding-right: 0;
 }
 
-main .section{
-    display: inline-block;
+nav .link{
+    color:rgb(124, 26, 9);
+}
+
+main {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main .link{
+    color:black;
+}
+
+main .box{
+    padding-bottom: 2rem;
+    border-bottom: 2px solid;
+    border-color: #ffe7ae;
+    margin-bottom: 2rem;
+}
+
+.table{
+    border-collapse: collapse;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+}
+
+.t_row:nth-child(odd){
+    background-color: #ffe7ae;
+}
+
+.t_row{
+    height: 2rem;
+}
+
+.order_input{
+    padding: 0.5rem 0 0.5rem 0;
+}
+
+.order_label{
+    padding: 1rem 0rem 0.5rem 0.5rem;
+}
+
+.order_legend{
+    padding-left: 0.5rem;
+}
+
+.order_box{
+    border: 1px solid;
+    border-color: #ffe7ae;
+}
+
+.h_um{
+    padding-bottom: 1rem;
+    padding-top:1rem;
+}
+
+.dd_item{
+    margin-bottom: 1rem;
+}
+
+.section{
+    margin:1%;
     vertical-align: top;
+    width:48%;
+    display: inline-block;
 }
 
-main .section:nth-child(2n+1){
-    padding-right: 2rem;
-    margin-right:5rem;
-    margin-left:1rem;
-    margin-bottom: 2rem;
+.um_img img{
+    max-width: 100%;
 }
 
-main .section:nth-child(2n){
-    width: 50%;
-    margin-bottom: 2rem;
+.section:nth-of-type(2n){
+  margin-right: 0;
 }
 
-main .divide{
-    background-color: chocolate;
-    height: 1rem;
+.no_dot{
+    list-style-type: none
 }
 
-footer{
-    background-color: tomato;
+.footer_index{
+    background-color:#2f0505;
     text-align: center;
+    border-top: 8px solid;
+    border-top-color: #ffe7ae;
 }
 
-footer .box {
+.footer_box {
     display: inline-block;
     width: 16rem;
     vertical-align: top;
     text-align: center;
+    color:beige;
+}
+
+.footer_index .link{
+    color:beige;
+}
+
+.footer_other{
+    background-color:#2f0505;
+    text-align: center;
+    border-top: 8px solid;
+    border-top-color: #ffe7ae;
+}
+
+.footer_other .box {
+    display: inline;
+    vertical-align: top;
+    color:beige;
+}
+
+.footer_other .link{
+    color:beige;
 }
