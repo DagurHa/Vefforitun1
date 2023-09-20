@@ -1,21 +1,76 @@
-/* Setjum inn „reset“ sem fjarlægir margin og padding af öllu */
+/* Reset og border-box á allt */
 * {
   margin: 0;
   padding: 0;
 }
 
-/* Reiknum stærð á öllum boxum sem border-box */
 html {
   box-sizing: border-box;
 }
-/* og látum erfast á allt */
+
 *,
 *:before,
 *:after {
   box-sizing: inherit;
 }
 
-/* hjálpar class sem felur sjónrænt en skjálesarar lesa */
+/* Leturgerðir */
+
+/** Hér skal skilgreina leturgerðir **/
+
+/* Stillingar */
+
+:root {
+  /* Grunn bilið okkar er 1rem == 16px */
+  --font-base-body-px: 16px;
+  --spacing: 1rem;
+
+  /* Hámarksbreidd á efni */
+  --max-width: 900px;
+
+  /* Border breiddir */
+  --border-small: 1px;
+  --border-large: 8px;
+  --border-radius: 6px;
+
+  /* Litir */
+  --color-gold: #ffe7ae;
+  --color-gold-light: #fff1cf;
+  --color-dark: #2f0505;
+  --color-light: #fff9ee;
+
+  /* Letur stillingar */
+  --font-base-size: 1rem;
+  --font-family-base: 'Noto Sans Display', Helvetica, Arial, sans-serif;
+  --font-family-heading: 'Lora', Georgia, serif;
+}
+
+/* Almennt */
+
+/** Skilgreininar sem gilda fyrir allt efni og nota type selectora **/
+
+html,
+input,
+select,
+button {
+  font-size: var(--font-base-body-px);
+}
+
+h1,
+h2,
+h3 {
+}
+
+a {
+  color: inherit;
+  background-color: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+/** Hjálpar class sem felur sjónrænt en skjálesarar lesa **/
 .sr-only:not(:focus):not(:active) {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -26,176 +81,113 @@ html {
   width: 1px;
 }
 
-/*** Almennt ***/
+/* Layout */
 
-html,
-input,
-select,
-button {
-  font-size: 16px;
-  font-family: 'Lora', serif;
+.wrapper {
+  /** Þessi selector er utanum allt og ætti að stýra plássi á milli efnis **/
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
 }
 
-a {
-  color: inherit;
+/** Haus **/
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing);
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  padding-bottom: var(--spacing);
 }
 
-h2,
-h3,
-section {
-  margin-bottom: 1rem;
+.header header {
 }
 
-img {
-  max-width: 100%;
+/** Valmynd **/
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  border-bottom: var(--border-large) solid var(--color-gold);
+  background-color: var(--color-gold-light);
+  padding-top: var(--spacing);
+  padding-bottom: var(--spacing);
 }
 
-/*** Haus ***/
-
-body > header {
-  padding: 1rem;
-  border-bottom: 8px solid #ffe7ae;
-
-  background-color: #2f0505;
-  color: #fff1cf;
-
-  text-align: center;
+.navigation ul {
+  display: flex;
+  gap: 1rem;
+  list-style-type: none;
 }
 
-/*** Valmynd ***/
+/** Meginmál **/
 
-nav {
-  margin-bottom: 1rem;
-  padding: 1rem;
-
-  background-color: #fff9ee;
-  color: #2f0505;
+.main {
+  display: flex;
+  flex-direction: column;
+  max-width: var(--max-width);
+  align-content: center;
+  align-items: center;
 }
 
-nav ul {
+/** Fótur **/
+
+.footer {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing);
+  background-color: var(--color-dark);
+  color: var(--color-light);
+}
+
+.footer ul {
   list-style: none;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
-nav ul li {
-  display: inline-block;
-  margin-right: 1rem;
-}
-
-/*** Meginmál ***/
-
-main {
-  margin: 0 auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  max-width: 900px;
-}
-
-/*** Fótur ***/
-
-footer {
-  margin-top: 1rem;
-  padding: 1rem;
-  border-top: 8px solid #ffe7ae;
-
-  background-color: #2f0505;
-  color: #fff1cf;
-
-  text-align: center;
-}
-
-footer > section {
-  display: inline-block;
-  vertical-align: top;
-}
-
-footer ul {
-  list-style: none;
-  text-align: center;
-}
-
-/*** Box! ***/
+/* Box! */
 
 .boxes {
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid #ffe7ae;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--spacing);
+  row-gap: calc(2*var(--spacing));
+  align-content: space-around;
+
 }
 
 .boxes .box {
-  display: inline-block;
-
-  margin-bottom: 1rem;
-  margin-right: 1%;
-  width: 48%;
-
-  vertical-align: top;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-gold);
+  flex-basis: 48%;
+  gap: var(--spacing);
+  border-radius: var(--border-radius);
 }
 
-.boxes .box a {
-  display: block;
-  margin-top: 1rem;
-  font-weight: bold;
+.box a{
+  display: flex;
 }
 
-/*** Opnunartími ***/
+/** Og fleiri selectorar... **/
 
-dt {
-  font-weight: bold;
-}
+/* Opnunartími */
 
-dd {
-  margin-bottom: 1rem;
-}
+/**
+Hér eru skilgreiningar sem endurnýta má úr v3, með takmörkunum.
+**/
 
-/*** Matseðill ***/
+/* Matseðill */
 
-table {
-  margin-bottom: 1rem;
-  border-spacing: 0;
-}
+/**
+Hér eru skilgreiningar sem endurnýta má úr v3, með takmörkunum.
+**/
 
-table th,
-table td {
-  padding: 0.5rem;
-}
+/* Pöntunarform */
 
-table tbody tr:nth-child(2n + 1) {
-  background-color: #ffe7ae;
-}
-
-/*** Pöntunarform ***/
-
-fieldset {
-  margin-bottom: 1rem;
-  border: 1px solid #ffe7ae;
-  padding: 1rem;
-}
-
-fieldset legend {
-  font-weight: bold;
-}
-
-fieldset div {
-  margin-bottom: 1rem;
-}
-
-fieldset div label {
-  display: block;
-}
-
-fieldset input,
-fieldset select,
-fieldset textarea {
-  padding: 0.5rem;
-}
-
-fieldset input[type='checkbox'] {
-  display: inline-block;
-  margin-right: 0.5rem;
-}
-
-form button {
-  padding: 0.25rem;
-  border-radius: 6px;
-}
+/**
+Hér eru skilgreiningar sem endurnýta má úr v3, með takmörkunum.
+**/
