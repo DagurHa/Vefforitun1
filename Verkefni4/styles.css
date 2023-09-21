@@ -59,6 +59,12 @@ button {
 h1,
 h2,
 h3 {
+  font-style: "Lora";
+}
+
+h2,
+h3{
+  margin-bottom: var(--spacing);
 }
 
 a {
@@ -87,12 +93,11 @@ img {
   /** Þessi selector er utanum allt og ætti að stýra plássi á milli efnis **/
   display: flex;
   flex-direction: column;
-  gap: var(--spacing);
 }
 
 /** Haus **/
 
-.header {
+header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -100,9 +105,6 @@ img {
   background-color: var(--color-dark);
   color: var(--color-light);
   padding-bottom: var(--spacing);
-}
-
-.header header {
 }
 
 /** Valmynd **/
@@ -114,11 +116,12 @@ img {
   background-color: var(--color-gold-light);
   padding-top: var(--spacing);
   padding-bottom: var(--spacing);
+  margin-bottom: var(--spacing);
 }
 
 .navigation ul {
   display: flex;
-  gap: 1rem;
+  gap: var(--spacing);
   list-style-type: none;
 }
 
@@ -128,8 +131,7 @@ img {
   display: flex;
   flex-direction: column;
   max-width: var(--max-width);
-  align-content: center;
-  align-items: center;
+  margin: 0 auto;
 }
 
 /** Fótur **/
@@ -140,12 +142,23 @@ img {
   gap: var(--spacing);
   background-color: var(--color-dark);
   color: var(--color-light);
+
+  margin-top: 1rem;
+  padding: 1rem;
+  border-top: 8px solid #ffe7ae;
 }
 
-.footer ul {
+.footer .footer_list {
   list-style: none;
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.footer .footer_section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Box! */
@@ -153,10 +166,10 @@ img {
 .boxes {
   display: flex;
   flex-wrap: wrap;
-  column-gap: var(--spacing);
-  row-gap: calc(2*var(--spacing));
   align-content: space-around;
-
+  row-gap: calc(2*var(--spacing));
+  column-gap: calc(0.5*var(--spacing));
+  margin-bottom: calc(2*var(--spacing));
 }
 
 .boxes .box {
@@ -164,12 +177,31 @@ img {
   flex-direction: column;
   background-color: var(--color-gold);
   flex-basis: 48%;
-  gap: var(--spacing);
   border-radius: var(--border-radius);
+  padding: calc(0.4*var(--spacing));
 }
 
 .box a{
   display: flex;
+  margin-top: var(--spacing);
+  font-weight: bold;
+}
+
+.box h3{
+  border-bottom: calc(0.1*var(--spacing)) solid black;
+}
+
+.box dt{
+  font-weight: bold;
+}
+
+.box dd{
+  margin-bottom: calc(var(--spacing));
+}
+
+.box p{
+  display: flex;
+  flex-grow: 1;
 }
 
 /** Og fleiri selectorar... **/
