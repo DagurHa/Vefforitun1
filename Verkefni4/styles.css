@@ -16,6 +16,34 @@ html {
 
 /* Leturgerðir */
 
+@font-face {
+  font-family: 'Lora';
+  src: url('.fonts/Lora-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400; /* Set the appropriate font weight */
+  font-style: normal; /* This is not italic */
+}
+
+@font-face {
+  font-family: 'Lora';
+  src: url('.fonts/Lora-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400; /* Set the appropriate font weight */
+  font-style: italic; /* This is italic */
+}
+
+@font-face {
+  font-family: 'Noto Sans Display';
+  src: url('.fonts/NotoSansDisplay-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 400; /* Set the appropriate font weight */
+  font-style: normal; /* This is not italic */
+}
+
+@font-face {
+  font-family: 'Noto Sans Display';
+  src: url('.fonts/NotoSansDisplay-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 400; /* Set the appropriate font weight */
+  font-style: italic; /* This is italic */
+}
+
 /** Hér skal skilgreina leturgerðir **/
 
 /* Stillingar */
@@ -54,12 +82,13 @@ input,
 select,
 button {
   font-size: var(--font-base-body-px);
+  font-family: var(--font-family-base);
 }
 
 h1,
 h2,
 h3 {
-  font-style: "Lora";
+  font-family: var(--font-family-heading);
 }
 
 h2,
@@ -73,7 +102,11 @@ a {
 }
 
 img {
+  max-height: 400px;
   max-width: 100%;
+  object-fit: cover;
+  object-position: top;
+  margin-bottom: calc(0.5*var(--spacing));
 }
 
 /** Hjálpar class sem felur sjónrænt en skjálesarar lesa **/
@@ -93,6 +126,7 @@ img {
   /** Þessi selector er utanum allt og ætti að stýra plássi á milli efnis **/
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 /** Haus **/
@@ -132,6 +166,8 @@ header {
   flex-direction: column;
   max-width: var(--max-width);
   margin: 0 auto;
+  flex: 1;
+  justify-content: center;
 }
 
 /** Fótur **/
@@ -143,9 +179,9 @@ header {
   background-color: var(--color-dark);
   color: var(--color-light);
 
-  margin-top: 1rem;
-  padding: 1rem;
-  border-top: 8px solid #ffe7ae;
+  margin-top: var(--spacing);
+  padding: var(--spacing);
+  border-top: 8px solid var(--color-gold);
 }
 
 .footer .footer_list {
@@ -191,14 +227,6 @@ header {
   border-bottom: calc(0.1*var(--spacing)) solid black;
 }
 
-.box dt{
-  font-weight: bold;
-}
-
-.box dd{
-  margin-bottom: calc(var(--spacing));
-}
-
 .box p{
   display: flex;
   flex-grow: 1;
@@ -208,17 +236,74 @@ header {
 
 /* Opnunartími */
 
+.box dt{
+  font-weight: bold;
+}
+
+.box dd{
+  margin-bottom: calc(var(--spacing));
+}
+
 /**
 Hér eru skilgreiningar sem endurnýta má úr v3, með takmörkunum.
 **/
 
+.saga{
+  margin-bottom: var(--spacing);
+}
+
 /* Matseðill */
+
+table {
+  margin-bottom: var(--spacing);
+  border-spacing: 0;
+}
+
+table th,
+table td {
+  padding: calc(0.5*var(--spacing));
+}
+
+table tbody tr:nth-child(2n + 1) {
+  background-color: var(--color-gold);
+}
 
 /**
 Hér eru skilgreiningar sem endurnýta má úr v3, með takmörkunum.
 **/
 
 /* Pöntunarform */
+
+fieldset {
+  margin-bottom: var(--spacing);
+}
+
+fieldset legend {
+  font-weight: bold;
+}
+
+fieldset div {
+  margin-bottom: var(--spacing);
+}
+
+fieldset div label {
+  display: flex;
+}
+
+fieldset input,
+fieldset select,
+fieldset textarea {
+  padding: calc(0.5*var(--spacing));
+}
+
+fieldset input[type='checkbox'] {
+  margin-right: calc(0.5*var(--spacing));
+}
+
+form button {
+  padding: calc(0.25*var(--spacing));
+  border-radius: 6px;
+}
 
 /**
 Hér eru skilgreiningar sem endurnýta má úr v3, með takmörkunum.
