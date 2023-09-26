@@ -79,7 +79,22 @@ select,
 button {
   font-size: var(--font-base-body-px);
   font-family: var(--font-family-base);
+
 }
+
+html{
+  animation: fadeIn 500ms ease-in;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+  }
+  to{
+    opacity:1;
+  }
+}
+
 
 h1,
 h2,
@@ -114,6 +129,24 @@ img {
 
 /** Útfæra takka + kvikun **/
 
+.link{
+  text-align: center;
+  padding-top: calc(0.5*var(--spacing));
+  padding-bottom: calc(0.5*var(--spacing));
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  border: var(--border-small) solid var(--color-dark);
+
+  transition: 500ms;
+}
+
+.link:hover{
+  background-color: var(--color-gold);
+  color: black;
+}
+
 /* Kvikun */
 
 /** Útfæra kvikun á efni þegar síða opnuð **/
@@ -122,25 +155,159 @@ img {
 
 /** Útfæra layout með grid **/
 
+.wrapper{
+  display:grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  gap: var(--spacing);  
+}
+
 /* Haus */
 
 /** Útfæra haus með grid **/
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing);
+
+  border-bottom: var(--border-large) solid var(--color-gold);
+
+  background-color: var(--color-dark);
+  color: var(--color-gold-light);
+}
+
+.header header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 /* Valmynd */
 
 /** Útfæra valmynd með grid **/
 
+.navigation {
+  padding: var(--spacing);
+  width: 100%;
+
+  background-color: var(--color-light);
+  color: var(--color-dark);
+}
+
+.navigation ul {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing);
+
+  width: 100%;
+
+  list-style: none;
+}
+
+
 /** Meginmál **/
 
 /** Útfæra meginmál með grid **/
+
+.main{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  margin: 0 auto;
+
+  padding-left: var(--spacing);
+  padding-right: var(--spacing);
+  width: 100%;
+  max-width: var(--max-width);
+}
 
 /** Fótur **/
 
 /** Útfæra fót með grid **/
 
+.footer {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing);
+
+  padding: var(--spacing);
+  border-top: var(--border-large) solid var(--color-gold);
+
+  background-color: var(--color-dark);
+  color: var(--color-gold-light);
+
+  text-align: center;
+}
+
+.footer ul {
+  list-style: none;
+}
+
 /* Box! */
 
 /** Útfæra box með grid **/
+
+.boxes {
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  grid-template-rows: auto;
+  gap: var(--gutter);
+
+  width: 100%;
+  gap: calc(var(--spacing) * 2) var(--spacing);
+  margin-bottom: calc(var(--spacing) * 2);
+}
+
+.box{
+  display:flex;
+  flex-direction: column;
+  grid-column: span 12;
+  gap: var(--spacing);
+
+  padding: calc(var(--spacing) * 0.5);
+  min-height: 100px;
+
+  color: var(--color-dark);
+  background-color: var(--color-gold-light);
+  border-radius: var(--border-radius);
+}
+
+.boxes .box .title {
+  margin-bottom: calc(var(--spacing) * 0.5);
+  border-bottom: var(--border-small) solid var(--color-dark);
+}
+
+.boxes .box .content {
+  flex: 1;
+}
+
+.boxes .box img {
+
+  max-height: 400px;
+
+  object-fit: cover;
+  object-position: top center;
+}
+
+.boxes .box .link {
+  margin-top: calc(var(--spacing) * 0.5);
+
+  font-weight: bold;
+}
+
+@media(min-width: 1000px){
+  .box{
+    grid-column: span 6;
+  }
+}
+
+@media(min-width: 1400px){
+  .box{
+    grid-column: span 4;
+  }
+}
 
 /* Opnunartími */
 
@@ -161,6 +328,22 @@ table {
 table th,
 table td {
   padding: calc(var(--spacing) * 0.5);
+}
+
+table tbody tr:nth-child(2n + 1) {
+  color: var(--color-dark);
+  background-color: var(--color-gold);
+}
+
+/* Matseðill */
+
+table {
+  border-spacing: 0;
+}
+
+table th,
+table td {
+  padding: calc(var(--spacing) * 0.5);
   text-align: left;
 }
 
@@ -170,3 +353,32 @@ table tbody tr:nth-child(2n + 1) {
 }
 
 /* Pöntunarform */
+
+fieldset {
+  border: var(--border-small) solid var(--color-dark);
+}
+
+fieldset legend {
+  font-weight: bold;
+}
+
+fieldset div label {
+  display: flex;
+  flex-direction: column;
+}
+
+fieldset input,
+fieldset select,
+fieldset textarea {
+  padding: calc(var(--spacing) * 0.5);
+}
+
+fieldset .checkbox label {
+  flex-direction: row;
+  gap: calc(var(--spacing) * 0.5);
+}
+
+form button {
+  padding: calc(var(--spacing) * 0.25);
+  border-radius: var(--border-radius);
+}
