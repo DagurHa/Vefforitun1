@@ -1,0 +1,172 @@
+/* Reset og border-box á allt */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* Leturgerðir */
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-display: swap;
+  src: url(./fonts/Lora-VariableFont_wght.ttf) format('woff');
+}
+
+@font-face {
+  font-family: 'Noto Sans Display';
+  font-style: normal;
+  font-display: swap;
+  src: url(./fonts/NotoSansDisplay-VariableFont.ttf) format('woff');
+}
+
+/* Stillingar */
+
+:root {
+  /* Grunn bilið okkar er 1rem == 16px */
+  --font-base-body-px: 16px;
+  --spacing: 1rem;
+
+  /* Bil á milli „stærri“ eininga (header, efnisbox, footer) */
+  --vertical-space: calc(var(--gutter));
+
+  /* Hámarksbreidd á efni */
+  --max-width: 1400px;
+  --width-offset: calc(100% - (2 * var(--offset)));
+
+  /* Border breiddir */
+  --border-small: 1px;
+  --border-large: 8px;
+  --border-radius: 6px;
+
+  /* Litir */
+  --color-gold: #ffe7ae;
+  --color-gold-light: #fff1cf;
+  --color-dark: #2f0505;
+  --color-light: #fff9ee;
+
+  /* Grid stillingar */
+  --columns: 12;
+  --gutter: 30px;
+  --offset: 20px;
+
+  /* Letur stillingar */
+  --font-base-size: 1rem;
+  --font-family-base: 'Noto Sans Display', Helvetica, Arial, sans-serif;
+  --font-family-heading: 'Lora', Georgia, serif;
+
+  /* Transitions */
+  --transition-time-short: 300ms;
+  --transition-time-long: 600ms;
+  --transition-timing-function: ease-in-out;
+}
+
+/* Almennt */
+
+html,
+input,
+select,
+button {
+  font-size: var(--font-base-body-px);
+  font-family: var(--font-family-base);
+}
+
+h1,
+h2,
+h3 {
+  /* Setjum almennt bil á eftir fyrirsögnum */
+  margin-bottom: var(--spacing);
+
+  font-family: var(--font-family-heading);
+}
+
+a {
+  color: inherit;
+  background-color: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+/** Hjálpar class sem felur sjónrænt en skjálesarar lesa **/
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* Takki */
+
+/** Útfæra takka + kvikun **/
+
+/* Kvikun */
+
+/** Útfæra kvikun á efni þegar síða opnuð **/
+
+/* Layout */
+
+/** Útfæra layout með grid **/
+
+/* Haus */
+
+/** Útfæra haus með grid **/
+
+/* Valmynd */
+
+/** Útfæra valmynd með grid **/
+
+/** Meginmál **/
+
+/** Útfæra meginmál með grid **/
+
+/** Fótur **/
+
+/** Útfæra fót með grid **/
+
+/* Box! */
+
+/** Útfæra box með grid **/
+
+/* Opnunartími */
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-bottom: var(--spacing);
+}
+
+/* Matseðill */
+
+table {
+  border-spacing: 0;
+}
+
+table th,
+table td {
+  padding: calc(var(--spacing) * 0.5);
+  text-align: left;
+}
+
+table tbody tr:nth-child(2n + 1) {
+  color: var(--color-dark);
+  background-color: var(--color-gold);
+}
+
+/* Pöntunarform */
