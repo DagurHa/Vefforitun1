@@ -112,6 +112,7 @@ a {
 
 img {
   max-width: 100%;
+  width: 100%;
 }
 
 /** Hjálpar class sem felur sjónrænt en skjálesarar lesa **/
@@ -221,10 +222,10 @@ img {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-  margin: 0 auto;
+  margin: 0 var(--spacing) 0 var(--spacing);
 
-  width: 100%;
   max-width: var(--max-width);
+  
 }
 
 /** Fótur **/
@@ -338,6 +339,9 @@ img {
   .footer_empty{
     grid-column: span 2;
   }
+  .main{
+    margin: 0 auto;
+  }
 }
 
 /* Opnunartími */
@@ -390,11 +394,16 @@ fieldset input,
 fieldset select,
 fieldset textarea {
   padding: calc(var(--spacing) * 0.5);
+  width: 100%;
 }
 
 fieldset .checkbox label {
   flex-direction: row;
   gap: calc(var(--spacing) * 0.5);
+}
+
+.check{
+  width:auto;
 }
 
 form button {
