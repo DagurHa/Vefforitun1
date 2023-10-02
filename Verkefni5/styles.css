@@ -222,10 +222,11 @@ img {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-  margin: 0 var(--spacing) 0 var(--spacing);
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 
-  max-width: var(--max-width);
-  
+  max-width: var(--max-width);  
 }
 
 /** Fótur **/
@@ -269,7 +270,6 @@ img {
   display: grid;
   grid-template-columns: repeat(var(--columns), 1fr);
   grid-template-rows: auto;
-  gap: var(--gutter);
 
   width: 100%;
   gap: var(--gutter);
@@ -338,9 +338,6 @@ img {
   
   .footer_empty{
     grid-column: span 2;
-  }
-  .main{
-    margin: 0 auto;
   }
 }
 
