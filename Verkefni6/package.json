@@ -1,0 +1,21 @@
+{
+  "name": "verkefni6",
+  "version": "1.0.0",
+  "description": "Verkefni6",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Vefforitun1"
+  },
+  "author": "Dagur Hall",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.29.3",
+    "concurrently": "^8.2.1",
+    "sass": "^1.69.2",
+    "stylelint": "^15.10.3"
+  }
+}
