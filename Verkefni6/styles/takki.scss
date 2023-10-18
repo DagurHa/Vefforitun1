@@ -1,0 +1,23 @@
+.button {
+    display: inline-block;
+  
+    border: 1px solid $color-dark;
+    border-radius: $border-radius;
+    padding: calc($spacing / 2) calc($spacing);
+  
+    font-family: $font-family-base;
+    text-decoration: none;
+    text-align: center;
+  
+    color: $color-light;
+    background-color: $color-dark;
+  
+    transition: background-color $transition-time-short
+        $transition-timing-function,
+      color $transition-time-short;
+  }
+  
+  .button:hover {
+    color: $color-dark;
+    background-color: $color-gold;
+  }

@@ -1,0 +1,297 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+@font-face {
+  font-family: "Lora";
+  font-style: normal;
+  font-display: swap;
+  src: url(./fonts/Lora-VariableFont_wght.ttf) format("woff");
+}
+@font-face {
+  font-family: "Noto Sans Display";
+  font-style: normal;
+  font-display: swap;
+  src: url(./fonts/NotoSansDisplay-VariableFont.ttf) format("woff");
+}
+html,
+input,
+select,
+button {
+  font-size: 16px;
+  font-family: "Noto Sans Display", Helvetica, Arial, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  margin-bottom: 1rem;
+  font-family: "Lora", Georgia, serif;
+}
+
+a {
+  color: inherit;
+  background-color: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 100%;
+  justify-items: center;
+  gap: 30px;
+}
+
+.button {
+  display: inline-block;
+  border: 1px solid #2f0505;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-family: "Noto Sans Display", Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  text-align: center;
+  color: #fff9ee;
+  background-color: #2f0505;
+  transition: background-color 300ms ease-in-out, color 300ms;
+}
+
+.button:hover {
+  color: #2f0505;
+  background-color: #ffe7ae;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.header,
+.main {
+  animation: 600ms ease-in-out fade-in;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+  width: 100%;
+  border-bottom: 8px solid #ffe7ae;
+  background-color: #2f0505;
+  color: #fff1cf;
+}
+
+.header header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: calc(100% - 40px);
+  text-align: center;
+}
+
+.navigation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem 0;
+  width: 100%;
+  background-color: #fff9ee;
+  color: #2f0505;
+}
+
+.navigation ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: calc(100% - 40px);
+  list-style: none;
+}
+
+.main {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 100%;
+  gap: 30px;
+  width: calc(100% - 40px);
+  max-width: 1400px;
+}
+
+.footer {
+  padding: 1rem;
+  border-top: 8px solid #ffe7ae;
+  width: 100%;
+  background-color: #2f0505;
+  color: #fff1cf;
+}
+
+.footer .content {
+  display: grid;
+  gap: 30px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (min-width: 500px) {
+  .footer .content {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    max-width: 1400px;
+  }
+  .footer section {
+    grid-column-end: span 4;
+  }
+  .footer section:first-child {
+    grid-column-start: 3;
+  }
+}
+.footer ul {
+  list-style: none;
+}
+
+/* Box! */
+.boxes {
+  display: grid;
+  grid-template-rows: auto;
+  gap: 30px;
+  justify-items: center;
+  width: 100%;
+}
+
+@media (min-width: 500px) {
+  .boxes {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+  }
+}
+.boxes .box {
+  grid-column: span 12;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+  min-height: 100px;
+  color: #2f0505;
+  background-color: #fff1cf;
+  border-radius: 5px;
+}
+
+@media (min-width: 500px) {
+  .boxes .box {
+    grid-column: span 6;
+  }
+}
+@media (min-width: 1000px) {
+  .boxes .box {
+    grid-column: span 4;
+  }
+}
+.boxes .box .title {
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #2f0505;
+}
+
+.boxes .box .content {
+  flex: 1;
+}
+
+.boxes .box img {
+  max-height: 400px;
+  object-fit: cover;
+  object-position: top center;
+}
+
+@media (min-width: 1000px) {
+  .boxes .box img {
+    max-height: 350px;
+  }
+}
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-bottom: 1rem;
+}
+
+table {
+  border-spacing: 0;
+}
+
+table th,
+table td {
+  padding: 0.5rem;
+  text-align: left;
+}
+
+table tbody tr:nth-child(2n+1) {
+  color: #2f0505;
+  background-color: #ffe7ae;
+}
+
+fieldset {
+  border: 1px solid #2f0505;
+}
+
+fieldset legend {
+  font-weight: bold;
+}
+
+fieldset div label {
+  display: flex;
+  flex-direction: column;
+}
+
+fieldset input,
+fieldset select,
+fieldset textarea {
+  padding: 0.5rem;
+  width: 100%;
+}
+
+fieldset input[type=checkbox] {
+  width: auto;
+}
+
+fieldset .checkbox label {
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+form button {
+  padding: 0.25rem;
+  border-radius: 6px;
+}
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,68 @@
+/* Box! */
+
+.boxes {
+    display: grid;
+    grid-template-rows: auto;
+    gap: $vertical-space;
+    justify-items: center;
+  
+    width: 100%;
+  }
+  
+@media (min-width: 500px) {
+    .boxes {
+      grid-template-columns: repeat($columns, 1fr);
+      grid-template-rows: auto;
+    }
+  }
+  
+.boxes .box {
+    grid-column: span 12;
+  
+    display: flex;
+    flex-direction: column;
+  
+    gap: $spacing;
+  
+    padding: calc($spacing * 0.5);
+    width: 100%;
+    min-height: 100px;
+  
+    color: $color-dark;
+    background-color: $color-gold-light;
+    border-radius: 5px;
+  }
+  
+@media (min-width: 500px) {
+    .boxes .box {
+      grid-column: span 6;
+    }
+  }
+  
+@media (min-width: 1000px) {
+    .boxes .box {
+      grid-column: span 4;
+    }
+  }
+  
+.boxes .box .title {
+    margin-bottom: calc($spacing * 0.5);
+    border-bottom: $border-small solid $color-dark;
+  }
+  
+.boxes .box .content {
+    flex: 1;
+  }
+  
+.boxes .box img {
+    max-height: 400px;
+  
+    object-fit: cover;
+    object-position: top center;
+  }
+  
+@media (min-width: 1000px) {
+    .boxes .box img {
+      max-height: 350px;
+    }
+  }

@@ -1,0 +1,26 @@
+// Opnunartími
+
+dt {
+    font-weight: bold;
+  }
+  
+dd {
+    margin-bottom: $spacing;
+  }
+  
+// Matseðill 
+  
+table {
+    border-spacing: 0;
+  }
+  
+table th,
+table td {
+    padding: calc($spacing * 0.5);
+    text-align: left;
+  }
+  
+table tbody tr:nth-child(2n + 1) {
+    color: $color-dark;
+    background-color: $color-gold;
+  }

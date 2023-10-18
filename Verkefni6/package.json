@@ -4,18 +4,23 @@
   "description": "Verkefni6",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "browser-sync": "browser-sync start --server --files index.html styles.css",
+    "sass": "sass styles.scss styles.css -w",
+    "sass-grid": "sass grid.scss grid.css -w",
+    "dev": "concurrently npm:browser-sync npm:sass npm:sass-grid",
+    "lint": "stylelint styles.scss scss"
   },
   "repository": {
     "type": "git",
-    "url": "Vefforitun1"
+    "url": "https://github.com/DagurHa/Vefforitun1/Verkefni6"
   },
   "author": "Dagur Hall",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "browser-sync": "^2.29.3",
     "concurrently": "^8.2.1",
     "sass": "^1.69.2",
+    "stylelint-config-sass-guidelines": "^10.0.0",
     "stylelint": "^15.10.3"
-  }
+    }
 }

@@ -1,0 +1,40 @@
+// Fótur
+
+.footer {
+    padding: $spacing;
+    border-top: $border-large solid $color-gold;
+    width: 100%;
+  
+    background-color: $color-dark;
+    color: $color-gold-light;
+  }
+  
+.footer .content {
+    display: grid;
+    gap: $vertical-space;
+  
+    margin: 0 auto;
+  
+    text-align: center;
+  }
+
+@media (min-width: 500px) {
+    .footer .content {
+      grid-template-columns: repeat($columns, 1fr);
+      grid-template-rows: auto;
+  
+      max-width: $max-width;
+    }
+  
+    .footer section {
+      grid-column-end: span 4;
+    }
+  
+    .footer section:first-child {
+      grid-column-start: 3;
+    }
+  }
+
+.footer ul {
+    list-style: none;
+  }

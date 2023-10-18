@@ -1,0 +1,9 @@
+.main {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 100%;
+    gap: $vertical-space;
+  
+    width: $width-offset;
+    max-width: $max-width;
+  }

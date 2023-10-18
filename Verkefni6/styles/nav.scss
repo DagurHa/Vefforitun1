@@ -1,0 +1,24 @@
+// Valmynd
+
+.navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: $spacing 0;
+    width: 100%;
+  
+    background-color: $color-light;
+    color: $color-dark;
+  }
+  
+.navigation ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: $spacing;
+  
+    width: 100%;
+    max-width: $width-offset;
+  
+    list-style: none;
+  }

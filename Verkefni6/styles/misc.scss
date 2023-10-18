@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    box-sizing: border-box;
+  }
+  
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+@font-face {
+    font-family: 'Lora';
+    font-style: normal;
+    font-display: swap;
+    src: url(./fonts/Lora-VariableFont_wght.ttf) format('woff');
+}
+
+@font-face {
+    font-family: 'Noto Sans Display';
+    font-style: normal;
+    font-display: swap;
+    src: url(./fonts/NotoSansDisplay-VariableFont.ttf) format('woff');
+}
+
+html,
+input,
+select,
+button {
+    font-size: $font-base-body-px;
+    font-family: $font-family-base;
+}
+
+h1,
+h2,
+h3 {
+    //Setjum almennt bil á eftir fyrirsögnum
+    margin-bottom: $spacing;
+    
+    font-family: $font-family-heading;
+}
+
+a {
+    color: inherit;
+    background-color: inherit;
+}
+
+img {
+    max-width: 100%;
+}
+
+// Hjálpar class sem felur sjónrænt en skjálesarar lesa
+.sr-only:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}

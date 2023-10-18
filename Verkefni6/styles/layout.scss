@@ -1,0 +1,12 @@
+// Layout
+
+.wrapper {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 100%;
+  
+    // grid items eru miðjuð
+    justify-items: center;
+  
+    gap: $vertical-space;
+}
