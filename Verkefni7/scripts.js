@@ -180,7 +180,7 @@ function formatProduct(product, quantity = undefined) {
 function cartInfo(cart) {
   let cart_info = "";
   for(let i = 0; i < cart.lines.length; i++){
-    s = formatPrice(cart.lines[i].product,cart.lines[i].quantity) + "\n";
+    s = formatProduct(cart.lines[i].product,cart.lines[i].quantity) + "\n";
     cart_info += s;
   }
   return cart_info;
@@ -332,9 +332,13 @@ function addProductToCart() {
 
   var cartQuant = Number.parseInt(cartQuantString, 10);
 
-  var cartLine = new CartLine(cartItem, cartQuant);
+  var CartLine = {
+    product: cartItem,
+    quantity: cartQuant
+  };
 
-  cart.lines.push(cartLine);
+  cart.lines.push(CartLine);
+  return;
 
   /* Hér ætti að nota `validateInteger` hjálparfall til að staðfesta gögn frá notanda */
   
@@ -386,14 +390,14 @@ function checkout() {
     return;
   }
 
-  const name = prompt('Nafn:');
-  const address = prompt('Heimilisfang:');
+  var name = prompt('Nafn:');
+  var address = prompt('Heimilisfang:');
   if (!address || !name) {
     console.error('Verður að setja nafn og heimilisfang.');
     return;
   }
 
-  console.log("Pöntun móttekin " + nafn);
+  console.log("Pöntun móttekin " + name);
   console.log("Vörur verða sendar á " + address);
 
   showCart();
