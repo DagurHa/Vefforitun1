@@ -1,7 +1,7 @@
 {
-  "name": "vef1-2023-v7-synilausn",
+  "name": "Verkefni 7",
   "version": "1.0.0",
-  "description": "## Markmið",
+  "description": "Gera js föll",
   "main": "scripts.js",
   "scripts": {
     "dev": "browser-sync start --server --files scripts.js index.html",
