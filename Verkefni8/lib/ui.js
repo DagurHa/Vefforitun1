@@ -1,5 +1,7 @@
 import { formatNumber } from './helpers.js';
 
+let numInCart = 0;
+
 export function createCartLine(product, quantity) {
   // TODO útfæra þannig að búin sé til lína í körfu á forminu:
 
@@ -17,19 +19,55 @@ export function createCartLine(product, quantity) {
   </tr>
   */
  
-  const cartLineElement = document.createElement('div');
-  const cartLineTitleElement = document.createElement('strong');
-  const cartLinePriceElement = document.createElement('span');
-  cartLinePriceElement.textContent = formatNumber(product.price);
+  const cartLineElement = document.createElement('tr');
+  cartLineElement.setAttribute("data-cart-product-id",product.id.toString());
 
+  const cartLineTitleElement = document.createElement('td');
   cartLineTitleElement.textContent = product.title;
-
   cartLineElement.appendChild(cartLineTitleElement);
+
+  const cartLineQuantity = document.createElement("td");
+  cartLineQuantity.className="quantity";
+  cartLineQuantity.textContent = quantity;
+  cartLineElement.appendChild(cartLineQuantity);
+
+  const cartLinePriceElement = document.createElement('td');
+  cartLinePriceElement.className="price";
+  const cartLineSpanPrice = document.createElement("span");
+  cartLineSpanPrice.textContent = formatNumber(product.price);
+  cartLinePriceElement.appendChild(cartLineSpanPrice);
   cartLineElement.appendChild(cartLinePriceElement);
 
+  const cartLinePriceTotalElement = document.createElement('td');
+  cartLinePriceTotalElement.className="price";
+  const cartLineSpanPriceTotal = document.createElement("span");
+  cartLineSpanPriceTotal.textContent = formatNumber(quantity*product.price);
+  cartLinePriceTotalElement.appendChild(cartLineSpanPriceTotal);
+  cartLineElement.appendChild(cartLinePriceTotalElement);
+
+  const cartLineRemove = document.createElement("td");
+  const cartLineRemoveForm = document.createElement("form");
+  cartLineRemoveForm.className = "remove";
+  cartLineRemoveForm.method = "post";
+  const cartLineRemoveButton = document.createElement("button");
+  cartLineRemoveButton.textContent = "Eyða";
+  cartLineRemoveForm.appendChild(cartLineRemoveButton);
+  cartLineRemove.appendChild(cartLineRemoveForm);
+  cartLineElement.appendChild(cartLineRemove);
+
   // TODO hér þarf að búa til eventListener sem leyfir að eyða línu úr körfu
+  cartLineRemoveButton.addEventListener("click",removeCartLine);
+  numInCart++;
 
   return cartLineElement;
+}
+
+function removeCartLine(event){
+  event.preventDefault();
+  const parent = event.target.closest('tr');
+  parent.remove();
+  numInCart--;
+  if(numInCart === 0){showCartContent(false);}
 }
 
 /**
@@ -46,7 +84,7 @@ export function showCartContent(show = true) {
   }
 
   const emptyMessage = cartElement.querySelector('.empty-message');
-  const cartContent = cartElement.querySelector('.cart-content');
+  const cartContent = cartElement.querySelector('.table');
 
   if (!emptyMessage || !cartContent) {
     console.warn('fann ekki element');

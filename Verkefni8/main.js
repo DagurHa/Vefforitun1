@@ -33,6 +33,13 @@ function addProductToCart(product, quantity) {
   }
   
   // TODO hér þarf að athuga hvort lína fyrir vöruna sé þegar til
+  //const cartSelectors = document.querySelectorAll(".cart tr");
+  //console.log("hundur doo");
+  //for (const prod of Array.from(cartSelectors)) {
+  //  console.log("hundur");
+  //  console.log(prod);
+  //}
+
   const cartLine = createCartLine(product, quantity);
   cart.appendChild(cartLine);
 
@@ -58,8 +65,8 @@ function submitHandler(event) {
   // TODO hér þarf að finna fjölda sem á að bæta við körfu með því að athuga
   // á input
   const form = event.target.closest('form');
-  const quantity = form.querySelector('input');
-  console.log(quantity.dataset);
+  const quantityInput = form.querySelector('input[type="number"]');
+  const quantity = quantityInput.value;
 
   // Bætum vöru í körfu (hér væri gott að bæta við athugun á því að varan sé til)
   addProductToCart(product, quantity);
