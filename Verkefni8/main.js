@@ -1,4 +1,8 @@
 import { createCartLine, showCartContent } from './lib/ui.js';
+import { formatNumber } from './lib/helpers.js';
+
+let priceTot = 0;
+let numInCart = 0;
 
 const products = [
   {
@@ -26,6 +30,7 @@ const products = [
 function addProductToCart(product, quantity) {
   // Hér þarf að finna `<tbody>` í töflu og setja `cartLine` inn í það
   const cart = document.querySelector('.cart-content');
+  let found = false;
 
   if (!cart) {
     console.warn('fann ekki .cart');
@@ -33,20 +38,64 @@ function addProductToCart(product, quantity) {
   }
   
   // TODO hér þarf að athuga hvort lína fyrir vöruna sé þegar til
-  //const cartSelectors = document.querySelectorAll(".cart tr");
-  //console.log("hundur doo");
-  //for (const prod of Array.from(cartSelectors)) {
-  //  console.log("hundur");
-  //  console.log(prod);
-  //}
-
-  const cartLine = createCartLine(product, quantity);
-  cart.appendChild(cartLine);
+  const cartSelectors = document.querySelectorAll(".cart-content tr");
+  for (const prodForm of Array.from(cartSelectors)) {
+    const prodId = Number(prodForm.dataset.cartProductId);
+    if(prodId === product.id){
+      const quantElement = prodForm.querySelector(".quantity");
+      const currQuant = Number(quantElement.textContent);
+      const newQuant = currQuant + Number(quantity);
+      quantElement.textContent = newQuant.toString();
+      found = true;
+    }
+  }
+  if(!found){
+    const cartLine = createCartLine(product, quantity);
+    cart.appendChild(cartLine);
+    numInCart++;
+  }
 
   // Sýna efni körfu
   showCartContent(true);
 
   // TODO sýna/uppfæra samtölu körfu
+  priceTot += Number(quantity)*product.price;
+  const cartTotalElement = document.querySelector(".cart-total");
+  const totPriceElement = cartTotalElement.querySelector(".price");
+  totPriceElement.textContent = formatNumber(priceTot);
+}
+
+export function removeCartLine(event){
+  event.preventDefault();
+  const parent = event.target.closest('tr[data-cart-product-id]');
+  const lineQuant = Number(parent.querySelector('.quantity').textContent);
+  const parentId = Number(parent.dataset.cartProductId);
+  const product = products.find((i) => i.id === parentId);
+  const price = product.price*lineQuant;
+  parent.remove();
+  numInCart--;
+  priceTot -= price;
+  if(numInCart === 0){showCartContent(false);}
+}
+
+function checkout(event){
+  event.preventDefault();
+  var info = {
+    Name,Address
+  };
+  const checkoutForm = event.target.closest("form");
+  const fields = checkoutForm.querySelectorAll(".form-field");
+  const fieldsArr = Array.from(fields);
+  const inputName = fieldsArr[0].querySelector("#name");
+  const inputAddress = fieldsArr[1].querySelector("#address");
+  if(!inputName.value){
+    console.warn("Þarf að setja nafn");
+  }
+  if(!inputAddress.value){
+    console.warn("Þarf að setja heimilisfang");
+  }
+  info[Name] = inputName.value;
+  info[Address] = inputAddress.value;
 }
 
 function submitHandler(event) {
@@ -82,3 +131,6 @@ for (const form of Array.from(addToCartForms)) {
 }
 
 // TODO bæta við event handler á form sem submittar pöntun
+const buyCart = document.querySelector(".buy-cart");
+buyCart.addEventListener('click',checkout);
+

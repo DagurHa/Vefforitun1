@@ -1,6 +1,5 @@
 import { formatNumber } from './helpers.js';
-
-let numInCart = 0;
+import { removeCartLine } from '../main.js';
 
 export function createCartLine(product, quantity) {
   // TODO útfæra þannig að búin sé til lína í körfu á forminu:
@@ -57,17 +56,8 @@ export function createCartLine(product, quantity) {
 
   // TODO hér þarf að búa til eventListener sem leyfir að eyða línu úr körfu
   cartLineRemoveButton.addEventListener("click",removeCartLine);
-  numInCart++;
 
   return cartLineElement;
-}
-
-function removeCartLine(event){
-  event.preventDefault();
-  const parent = event.target.closest('tr');
-  parent.remove();
-  numInCart--;
-  if(numInCart === 0){showCartContent(false);}
 }
 
 /**
@@ -77,9 +67,14 @@ function removeCartLine(event){
 export function showCartContent(show = true) {
   // Finnum element sem inniheldur körfuna
   const cartElement = document.querySelector('.cart');
+  const receiptElement = document.querySelector(".checkout-form");
 
   if (!cartElement) {
     console.warn('fann ekki .cart');
+    return;
+  }
+  if(!receiptElement){
+    console.warn("fann ekki .receipt");
     return;
   }
 
@@ -94,8 +89,10 @@ export function showCartContent(show = true) {
   if (show) {
     emptyMessage.classList.add('hidden');
     cartContent.classList.remove('hidden');
+    receiptElement.classList.remove("hidden");
   } else {
     emptyMessage.classList.remove('hidden');
     cartContent.classList.add('hidden');
+    receiptElement.classList.add("hidden");
   }
 }
