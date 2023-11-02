@@ -1,22 +1,14 @@
 import { formatNumber } from './helpers.js';
 import { removeCartLine } from '../main.js';
 
+/**
+ * Fall sem útbýr nýja línu í kerrufylkið
+ *  @param {Product} product - Product hlutur sem táknar vöruna sem á að bæta við.
+ *  @param {Number} quantity - Heiltala sem táknar fjölda þessa hlutar sem á að bæta við.
+ *  @return {Element} Fallið skilar nýrri línu í kerru töfluna sem HTML elementi.
+ */
 export function createCartLine(product, quantity) {
   // TODO útfæra þannig að búin sé til lína í körfu á forminu:
-
-  /*
-  <tr data-cart-product-id="1">
-    <td>HTML húfa</td>
-    <td>1</td>
-    <td><span class="price">5.000 kr.-</span></td>
-    <td><span class="price">5.000 kr.-</span></td>
-    <td>
-      <form class="remove" method="post">
-        <button>Eyða</button>
-      </form>
-    </td>
-  </tr>
-  */
  
   const cartLineElement = document.createElement('tr');
   cartLineElement.setAttribute("data-cart-product-id",product.id.toString());
@@ -64,16 +56,16 @@ export function createCartLine(product, quantity) {
  * Sýna efni körfu eða ekki.
  * @param {boolean} show Sýna körfu eða ekki
  */
-export function showCartContent(show = true) {
+export function showCartContent(showCart = true) {
   // Finnum element sem inniheldur körfuna
   const cartElement = document.querySelector('.cart');
-  const receiptElement = document.querySelector(".checkout-form");
+  const checkoutElement = document.querySelector(".checkout-form");
 
   if (!cartElement) {
     console.warn('fann ekki .cart');
     return;
   }
-  if(!receiptElement){
+  if(!checkoutElement){
     console.warn("fann ekki .receipt");
     return;
   }
@@ -86,13 +78,13 @@ export function showCartContent(show = true) {
     return;
   }
 
-  if (show) {
+  if (showCart) {
     emptyMessage.classList.add('hidden');
     cartContent.classList.remove('hidden');
-    receiptElement.classList.remove("hidden");
+    checkoutElement.classList.remove("hidden");
   } else {
     emptyMessage.classList.remove('hidden');
     cartContent.classList.add('hidden');
-    receiptElement.classList.add("hidden");
+    checkoutElement.classList.add("hidden");
   }
 }
