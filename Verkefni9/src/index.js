@@ -7,7 +7,19 @@ import { renderDetails, renderFrontpage, searchAndRender } from './lib/ui.js';
  * @returns {Promise<void>}
  */
 async function onSearch(e) {
-  /* TODO útfæra */
+  e.preventDefault();
+
+  if(!e.target){
+    return;    
+  }
+
+  const value = e.target.querySelector('input') ?? {};
+
+  if(!value){
+    return;
+  }
+  await searchAndRender(document.body, e.target,value.value);
+  window.history.pushState({}, '', `/?query=${value.value}`);
 }
 
 /**
@@ -16,7 +28,19 @@ async function onSearch(e) {
  * leitarniðurstöðum ef `query` er gefið.
  */
 function route() {
-  /* TODO athuga hvaða síðu á að birta og birta */
+  const qs = new URLSearchParams(window.location);
+  
+  const query = qs.get('query');
+  const id = qs.get('id');
+
+  const parentElement = document.body; 
+
+  if(id){
+    renderDetails(parentElement,id);
+  }
+  else{
+    renderFrontpage(parentElement, onSearch, query ?? undefined);
+  }
 }
 
 // Bregst við því þegar við notum vafra til að fara til baka eða áfram.
