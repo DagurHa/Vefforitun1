@@ -35,6 +35,8 @@ function route() {
 
   const parentElement = document.body; 
 
+  console.log(query);
+
   if(id){
     renderDetails(parentElement,id);
   }

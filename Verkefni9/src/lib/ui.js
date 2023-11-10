@@ -92,7 +92,7 @@ function createSearchResults(results, query) {
 
   for(const result of results){
     const resultElement = el('li', {class: '.result'},
-      el('span', {class: 'name'},result.name),
+      el('a', {class: 'name', href: '../../details.html'},result.name),
       el('span', {class: 'mission'}, result.mission)
     );
 

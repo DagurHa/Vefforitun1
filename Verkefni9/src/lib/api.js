@@ -60,7 +60,7 @@ export async function searchLaunches(query) {
     console.error('Villa við að vinna úr JSON');
     return null;
   }
-
+  console.log(jsonResponse.results);
   return jsonResponse.results;
 }
 
